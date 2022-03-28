@@ -771,7 +771,7 @@ class PipelineEngine(DeepSpeedEngine):
 
             self.pipe_buffers['inputs'][buffer_id] = loaded
 
-        if self.is_last_stage():
+        elif self.is_last_stage():
             loaded = batch[1]
             if torch.is_tensor(batch[1]):
                 loaded = batch[1].to(self.device)
